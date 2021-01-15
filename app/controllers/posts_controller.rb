@@ -10,8 +10,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments=Comment.where("commentable_type = 'Post' AND commentable_id = ?",
-      params[:id])
   end
 
   # GET /posts/new
