@@ -11,7 +11,8 @@
 <br>
 <br>
 
-<%= form_for([@post, @post.comments.build]) do |form| %>
+<%= form_with model: [@post, @post.comments.build], local: true do |form| %>
+
   <div class="field">
     <%= form.label 'Your comment' %>
     <%= form.text_area :content %>
@@ -20,6 +21,7 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
 
 <hr>
@@ -32,7 +34,7 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <% @post.comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
       </tr>
